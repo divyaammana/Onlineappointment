@@ -1,0 +1,59 @@
+<html ng-app="myapp">
+<head>
+<link rel="stylesheet" href="http://localhost:3000/new.css"  >
+<link rel="stylesheet" href="http://localhost:3000/bootstrap.min.css">
+<link rel="stylesheet" href="http://localhost:3000/bootstrap-theme.min.css">
+<script type="text/javascript" src="http://localhost:3000/angular.min.js"></script>
+<body>
+<center>
+<img src="http://localhost:3000/images/appointments.png" height="150px" width="1300px"/>
+<h1>Appointment booking</h1>
+</center>
+<br>
+<center>
+<div class="container" ng-controller="Appctrl as ac">
+<table class="table">
+<thead>
+<tr>
+<th>Date</th>
+<th>Time</th>
+<th>Description</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><input class="form-model" ng-model="ac.person.date" required/></td>
+<td><input class="form-model" ng-model="ac.person.time"required/></td>
+<td><input class="form-model" ng-model="ac.person.description" required/></td>
+<td><button class="btn btn-primary" ng-click="ac.addApp()">Book Appointment</button></td>
+<td><button class="btn btn-info" ng-click="ac.update()">Update</button></td>
+<td><button class="btn btn-info" ng-click="ac.deselect()">Clear</td>
+</tr>
+</tr>
+<tr ng-repeat="person in ac.personlist">
+<td>{{person.date}}</td>
+<td>{{person.time}}</td>
+<td>{{person.description}}</td>
+<td><button class="btn btn-danger" ng-click="ac.remove(person._id)">Remove</button></td>
+<td><button class="btn btn-warning" ng-click="ac.edit(person._id)">Edit</button></td>
+</tr>
+</tbody></table>
+</div>
+
+
+<div id="wrapper" ng-app="App">
+  <p>{{datePicker || "00/00/0000"}}</p>
+  <input type="text" ng-model="datePicker" datepicker />
+</div>
+
+<a href="/logout">Logout</a>
+
+
+</center>
+
+<script src="http://localhost:3000/controller.js"></script>
+<script src="http://localhost:3000/datecontroller.js"></script>
+
+</body>
+</html>
