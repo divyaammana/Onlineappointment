@@ -1,0 +1,37 @@
+<html ng-app="myapp">
+<head>
+<link rel="stylesheet" href="http://localhost:3000/bootstrap.min.css">
+<link rel="stylesheet" href="http://localhost:3000/bootstrap-theme.min.css">
+<script type="text/javascript" src="http://localhost:3000/angular.min.js"></script>
+<script src="http://localhost:3000/controller.js"></script>
+<script src="http://localhost:3000/datecontroller.js"></script>
+<body>
+<center>
+<img src="http://localhost:3000/images/appointments.png" height="150px" width="1300px"/>
+<h1>Appointment booking</h1>
+</center>
+<br>
+<center>
+<div class="container" ng-controller="Appctrl as ac">
+<table class="table">
+<thead>
+<tr>
+<th>Date</th>
+<th>Time</th>
+<th>Description</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><input type="date" class="form-model" ng-model="ac.person.date" min="2016-03-30" required/></td>
+<td><input type="time" class="form-model" ng-model="ac.person.time"required/></td>
+<td><input class="form-model" ng-model="ac.person.description" required/></td>
+<td><button class="btn btn-primary" ng-click="ac.addApp()">Book Appointment</button></td>
+</tr>
+</tbody></table>
+</div>
+<a href="/logout">Logout</a>
+</center>
+</body>
+</html>

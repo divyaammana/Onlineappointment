@@ -16,10 +16,13 @@ router.get('/register', function(req, res) {
 router.post('/register', function(req, res) {
     Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
         if (err) {
-            return res.render("register", {info: "Username or password is incorrect. Try again."})
+            return res.render("register", {info: "Username already exists."})
         }
         passport.authenticate('local')(req, res, function () {
-            res.render('new');
+           if(req.body.username=="admin@gmail.com")
+    res.render('new');
+else
+	res.render('users');
         });
     });
 });
@@ -29,7 +32,10 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
+	if(req.body.username=="admin@gmail.com")
     res.render('new');
+else
+	res.render('users');
 });
 
 router.get('/logout', function(req, res) {

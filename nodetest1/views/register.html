@@ -3,17 +3,32 @@
 <link rel="stylesheet" href="/bootstrap.min.css">
 <link rel="stylesheet" href="/bootstrap-theme.min.css">
 <script type="text/javascript" src="/angular.min.js"></script>
+<script>
+function validate(form)
+{
+if(frmlogin.password.value!=frmlogin.password2.value)
+{
+alert("passwords do not match");
+frmlogin.password.focus();
+return false;
+
+return returnValue; 
+}
+}
+</script>
+
 </head>
 <body>
 <center>
 <h1>Register page</h1>
 <br/>
-<form action="/register" method="post">
-<b>Username</b><input type="text" name="username"/><br/><br/>
+<form name="frmlogin" action="/register" method="post" onsubmit="return validate(this);">
+<b>Username</b><input type="email" name="username"/><br/><br/>
 {{info}}
 <br/><br/>
 <b>Password</b><input type="password" name="password"/><br/><br/>
-<b>Confirm Password</b><input type="password" name="password"/><br/><br/>
+<b>Confirm Password</b><input type="password" name="password2"/><br/><br/>
+
 <input type="submit"/><br/><br/>
 <a href='/'>Cancel</a><br/>
 </form>

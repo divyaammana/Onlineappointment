@@ -15,6 +15,11 @@
 <div class="container" ng-controller="Appctrl as ac">
 <table class="table">
 <thead>
+<script>
+$(function)(){
+$("#datepicker"}.datepicker();
+});
+</script>
 <tr>
 <th>Date</th>
 <th>Time</th>
@@ -24,10 +29,10 @@
 </thead>
 <tbody>
 <tr>
-<td><input type="date" class="form-model" ng-model="ac.person.date" min="2016-04-04" required></td>
-<td><input class="form-model" ng-model="ac.person.time" required></td>
-<td><input class="form-model" ng-model="ac.person.description" required></td>
-<td><button type="submit" class="btn btn-primary" ng-click="ac.addApp()">Book Appointment</button></td>
+<td><input type="text" id="datepicker" ng-model="ac.person.date" required/></td>
+<td><input class="form-model" ng-model="ac.person.time"required/></td>
+<td><input class="form-model" ng-model="ac.person.description" required/></td>
+<td><button class="btn btn-primary" ng-click="ac.addApp()">Book Appointment</button></td>
 <td><button class="btn btn-info" ng-click="ac.update()">Update</button></td>
 <td><button class="btn btn-info" ng-click="ac.deselect()">Clear</td>
 </tr>

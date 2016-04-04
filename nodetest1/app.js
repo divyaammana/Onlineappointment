@@ -48,6 +48,7 @@ res.json(docs);
 app.post("/personlist",function(req,res){
 console.log(req.body);
 db.appointmentlist.insert(req.body,function(err,doc){
+console.log('hi');
 res.json(doc);
 });
 });
@@ -89,7 +90,7 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 
-mongoose.connect('mongodb://localhost/appointment');
+mongoose.connect('mongodb://127.0.0.1:27017/appointment');
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

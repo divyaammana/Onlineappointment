@@ -2,13 +2,14 @@
 var app=angular.module('myapp',[])
 app.controller('Appctrl',['$http',function($http){
 console.log('hello');
-
+var personlist;
 
 var list=this;
 
 $http.get('/personlist').success(function(response){
 console.log('success http');
 list.personlist=response;
+console.log(list.personlist);
 });
 /*$http({
 method:'GET',url:'/personlist'}).then(function(response){
